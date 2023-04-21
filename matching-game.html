@@ -34,14 +34,19 @@
 <script>
     let numberOfFaces = 5;
     const theLeftSide = document.getElementById('leftSide');
-// This function will be called every time you click on the left side.
 
+// This function will be called every time you click on the left side.
     function generateFaces() {
         for (let i = 0; i < numberOfFaces; i++) {
     let face = document.createElement('img');
     face.src = "images/face.png";
+// This will be the left side image that you click on. This will contain the faces at random.
+    let randomTop = Math.floor(Math.random() * 400) + 1;
+    let randomLeft = Math.floor(Math.random() * 400) + 1;
+    face.stlye.top = randomTop + 'px';
     }
 }
+
 
 
 </script>
