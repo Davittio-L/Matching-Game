@@ -43,10 +43,20 @@
           face.style.top = randomTop + "px";
           face.style.left = randomLeft + "px";
           leftSide.appendChild(face);
-
-          const leftSideImage = leftSide.cloneNode(true);
         }
+        const leftSideImage = leftSide.cloneNode(true);
+        leftSideImage.remove(leftSideImage.firstChild);
+        rightSide.append(leftSideImage);
+  
+      leftSide.addEventListener('click', nextLevel);
       }
+      function nextLevel(event) {
+    event.stopPropagation();
+    numberOfFaces += 5;
+    generateFaces();
+}
+    
+
     </script>
   </body>
 </html>
