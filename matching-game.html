@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matching-Game</title>
     <style>
-        img {
+      img {
         position: absolute;
-        }
+      }
 
-        div {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-        }
-        #rightSide {
-            left: 500px;
-            border-left: 1px solid;
-        }
+      div {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+      }
+      #rightSide {
+        left: 500px;
+        border-left: 1px solid;
+      }
     </style>
-</head>
-<body onload="generateFaces()">
-<h1>Matching Game</h1>
-<p>Click on the extra smiling face on the left.</p>
-<!-- The left side div will contain all the smiley faces shown on the left side. Same for the firght Side div. -->
-<div id='leftSide'></div>
-<div id='rightSide'></div>
+  </head>
+  <body onload="generateFaces()">
+    <h1>Matching Game</h1>
+    <p>Click on the extra smiling face on the left.</p>
+    <!-- The left side div will contain all the smiley faces shown on the left side. Same for the firght Side div. -->
+    <div id="leftSide"></div>
+    <div id="rightSide"></div>
 
-    
-
-<script>
-    let numberOfFaces = 5;
-    const theLeftSide = document.getElementById('leftSide');
-
-// This function will be called every time you click on the left side.
-    function generateFaces() {
+    <script>
+      const leftSide = document.getElementById("leftSide");
+      const rightSide = document.getElementById("rightSide");
+      let numberOfFaces = 5;
+      // This function will be called every time you click on the left side.
+      function generateFaces() {
         for (let i = 0; i < numberOfFaces; i++) {
-    let face = document.createElement('img');
-    face.src = 'images/smile.png';
-// This will be the left side image that you click on. This will contain the faces at random.
-    let randomTop = Math.floor(Math.random() * 400) + 1;
-    let randomLeft = Math.floor(Math.random() * 400) + 1;
-    face.stlye.top = randomTop + 'px';
-    face.style.left = randomLeft + 'px';
-    theleftSide.appendChild(face);
-    }
-}
-</script>
-</body>
+          const face = document.createElement("img");
+          face.src = "./images/smile.png";
+          // This will be the left side image that you click on. This will contain the faces at random.
+          let randomTop = Math.floor(Math.random() * 400) + 1;
+          let randomLeft = Math.floor(Math.random() * 400) + 1;
+          face.style.top = randomTop + "px";
+          face.style.left = randomLeft + "px";
+          leftSide.appendChild(face);
+
+          const leftSideImage = leftSide.cloneNode(true);
+        }
+      }
+    </script>
+  </body>
 </html>
