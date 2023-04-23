@@ -44,19 +44,30 @@
           face.style.left = randomLeft + "px";
           leftSide.appendChild(face);
         }
-        const leftSideImage = leftSide.cloneNode(true);
-        leftSideImage.remove(leftSideImage.firstChild);
-        rightSide.append(leftSideImage);
-  
-      leftSide.addEventListener('click', nextLevel);
+        const leftSideImages = leftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        rightSide.append(leftSideImages);
+
+        leftSide.addEventListener("click", nextLevel);
+        document.body.addEventListener("click", gameOver);
       }
       function nextLevel(event) {
-    event.stopPropagation();
-    numberOfFaces += 5;
-    generateFaces();
-}
-    
+        event.stopPropagation();
+        numberOfFaces += 5;
+        while (leftSide.firstChild) {
+          leftSide.removeChild(leftSide.firstChild);
+        }
+        while (rightSide.firstChild) {
+          rightSide.removeChild(rightSide.firstChild);
+        }
+        generateFaces();
+      }
 
+      function gameOver() {
+        alert("Game Over!");
+        document.body.removeEventListener("click", gameOver);
+        leftSide.lastChild.removeEventListener("click", nextLevel);
+      }
     </script>
   </body>
 </html>
